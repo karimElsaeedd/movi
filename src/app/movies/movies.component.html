@@ -1,1 +1,8 @@
-<p>movies works!</p>
+<div class="row my-5">
+  <div class="col-md-2 my-3" *ngFor="let item of moviesList">
+    <div class="item">
+      <img [src]="imgBaseUrl + item.poster_path" class="img-fluid my-2" >
+      <h2 class="h5">{{item.title}}</h2>
+    </div>
+  </div>
+</div>

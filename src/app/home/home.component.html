@@ -1,1 +1,35 @@
-<p>home works!</p>
+<div class="row my-5">
+  <div class="title col-md-4 mt-4">
+    <div class="brdr w-25 mb-4"></div>
+    <h2>Trending</h2>
+    <h2>Movies</h2>
+    <h2>To Watch Now</h2>
+    <br>
+    <span>Most Watched Movies By Days</span>
+    <div class="brdr w-100 mt-4"></div>
+  </div>
+  <div class="col-md-2 my-3" *ngFor="let item of moviesList">
+    <div class="item">
+      <img [src]="imgBaseUrl + item.poster_path" class="img-fluid my-2" >
+      <h2 class="h5">{{item.title}}</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row my-5">
+  <div class="title col-md-4 mt-4">
+    <div class="brdr w-25 mb-4"></div>
+    <h2>Trending</h2>
+    <h2>TV</h2>
+    <h2>To Watch Now</h2>
+    <br>
+    <span>Most Watched Movies By Days</span>
+    <div class="brdr w-100 mt-4"></div>
+  </div>
+  <div class="col-md-2 my-3" *ngFor="let item of TvShowsList">
+    <div class="item">
+      <img [src]="imgBaseUrl + item.poster_path" class="img-fluid my-2" >
+      <h2 class="h5">{{item.name}}</h2>
+    </div>
+  </div>
+</div>
