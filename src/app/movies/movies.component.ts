@@ -9,7 +9,7 @@ import { TrendingService } from '../trending.service';
 export class MoviesComponent implements OnInit {
 
   moviesList:any[]=[];
-  imgBaseUrl:string='https://image.tmdb.org/t/p/original'
+  imgBaseUrl:string = this._TrendingService.imgBaseUrl;
 
   getMovies()
   {

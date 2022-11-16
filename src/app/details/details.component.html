@@ -1,1 +1,19 @@
-<p>details works!</p>
+<div class="row my-5">
+  <div class="col-md-4">
+    <img [src]="imgBaseUrl + details.poster_path" class="img-fluid " >
+  </div>
+  <div class="col-md-8 my-3">
+    <h1 *ngIf="mediaType=='movie'">{{details.title}}</h1>
+    <h1 *ngIf="mediaType=='tv'">{{details.name}}</h1>
+    <h3 class="text-secondary" *ngIf="mediaType=='movie'">{{details.tagline}}</h3>
+    <h2 class="btn btn-info my-3 mx-1" *ngFor="let item of details.genres">{{item.name}}</h2>
+    <p class="fs-5">Vote : {{details.vote_average}}</p>
+    <p class="fs-5">Vote Count : {{details.vote_count}}</p>
+    <p class="fs-5">populaity : {{details.popularity}}</p>
+    <p class="fs-5" *ngIf="mediaType=='movie'">release data : {{details.release_date}}</p>
+    <p class="fs-5" *ngIf="mediaType=='movie'">run time : {{details.runtime}} minutes</p>
+    <p class="fs-5" *ngIf="mediaType=='tv'">number of seasons : {{details.number_of_seasons}}</p>
+    <p class="fs-5" *ngIf="mediaType=='tv'">number of episodes : {{details.number_of_episodes}}</p>
+    <p class="fs-5 text-secondary">{{details.overview}}</p>
+  </div>
+</div>

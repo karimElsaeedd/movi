@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'about',component:AboutComponent},
   {path:'movies',component:MoviesComponent},
   {path:'tvshows',component:TvshowsComponent},
-  {path:'details',component:DetailsComponent},
+  {path:'details/:id/:mediaType',component:DetailsComponent},
   {path:'people',component:PeopleComponent},
   {path:'network',component:NetworkComponent},
   {path:'login',component:LoginComponent},

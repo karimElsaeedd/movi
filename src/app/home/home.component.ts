@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TrendingService } from '../trending.service';
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   moviesList:any[]=[];
   TvShowsList:any[]=[];
-  imgBaseUrl:string='https://image.tmdb.org/t/p/original'
+  imgBaseUrl:string = this._TrendingService.imgBaseUrl
 
   getMovies()
   {

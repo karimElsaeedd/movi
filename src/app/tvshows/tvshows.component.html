@@ -1,6 +1,6 @@
 <div class="row my-5">
   <div class="col-md-2 my-3" *ngFor="let item of TvShowsList">
-    <div class="item">
+    <div class="item" routerLink="/details/{{item.id}}/tv">
       <img [src]="imgBaseUrl + item.poster_path" class="img-fluid my-2" >
       <h2 class="h5">{{item.name}}</h2>
     </div>
