@@ -1,5 +1,5 @@
 <div class="loginForm m-auto my-5 w-75">
-  <h1>Register Form</h1>
+  <h1>Login Form</h1>
   <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
     <div class="group-input mb-3">
       <label>Email</label>
@@ -17,6 +17,9 @@
         <p *ngIf="loginForm.controls.password.errors?.pattern">Password shoud be valid password</p>
       </div>
     </div>
-    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">
+      <span *ngIf="isLoading"> <i class="fas fa-spinner fa-spin"></i> </span>
+      <span *ngIf="!isLoading"> Login </span>
+    </button>
   </form>
 </div>

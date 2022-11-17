@@ -9,18 +9,18 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="home">Home</a>
+          <a *ngIf="isLogin" class="nav-link" routerLink="home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="movies">movies</a>
+          <a *ngIf="isLogin" class="nav-link" routerLink="movies">movies</a>
         </li>        <li class="nav-item">
-          <a class="nav-link" routerLink="tvshows">Tv Shows</a>
+          <a *ngIf="isLogin" class="nav-link" routerLink="tvshows">Tv Shows</a>
         </li>        <li class="nav-item">
-          <a class="nav-link" routerLink="people">People</a>
+          <a *ngIf="isLogin" class="nav-link" routerLink="people">People</a>
         </li>        <li class="nav-item">
-          <a class="nav-link" routerLink="network">Network</a>
+          <a *ngIf="isLogin" class="nav-link" routerLink="network">Network</a>
         </li>        <li class="nav-item">
-          <a class="nav-link" routerLink="about">About</a>
+          <a *ngIf="isLogin" class="nav-link" routerLink="about">About</a>
         </li>
       </ul>
 
@@ -33,13 +33,13 @@
         </div>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="login">Login</a>
+          <a *ngIf="!isLogin" class="nav-link" routerLink="login">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="register">Register</a>
+          <a *ngIf="!isLogin" class="nav-link" routerLink="register">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="login">Logout</a>
+          <a (click)="logOut()" *ngIf="isLogin" class="nav-link" routerLink="login">Logout</a>
         </li>
       </ul>
 

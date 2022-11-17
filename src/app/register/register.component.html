@@ -44,6 +44,9 @@
         <p *ngIf="registerForm.controls.password.errors?.pattern">Password shoud be valid password</p>
       </div>
     </div>
-    <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">
+      <span *ngIf="isLoading"> <i class="fas fa-spinner fa-spin"></i> </span>
+      <span *ngIf="!isLoading"> Register </span>
+    </button>
   </form>
 </div>

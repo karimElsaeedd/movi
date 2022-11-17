@@ -11,6 +11,10 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
 
+  constructor(private _AuthService:AuthService, private _Router:Router) { }
+
+  isLoading:boolean=false;
+
   registerForm:FormGroup = new FormGroup({
     'first_name': new FormControl(null,[Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
     'last_name': new FormControl(null,[Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
@@ -19,6 +23,7 @@ export class RegisterComponent implements OnInit {
     'password': new FormControl(null,[Validators.required,Validators.pattern(/^[a-zA-Z][0-9]{3}$/)])
   })
   submitForm(){
+    this.isLoading=true;
     if(this.registerForm.invalid){
       return;
     }
@@ -26,14 +31,15 @@ export class RegisterComponent implements OnInit {
       if(data.message=='success')
       {
         this._Router.navigateByUrl('/login')
+        this.isLoading=false;
       }
       else{
         alert(data.message)
+        this.isLoading=false;
       }
     })
   }
 
-  constructor(private _AuthService:AuthService, private _Router:Router) { }
 
   ngOnInit(): void {
   }

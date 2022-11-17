@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { AuthGuard } from './auth.guard';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -13,16 +14,16 @@ import { TvshowsComponent } from './tvshows/tvshows.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
-  {path:'home',component:HomeComponent},
-  {path:'about',component:AboutComponent},
-  {path:'movies',component:MoviesComponent},
-  {path:'tvshows',component:TvshowsComponent},
-  {path:'details/:id/:mediaType',component:DetailsComponent},
-  {path:'people',component:PeopleComponent},
-  {path:'network',component:NetworkComponent},
+  {path:'home', canActivate:[AuthGuard],component:HomeComponent},
+  {path:'about', canActivate:[AuthGuard] ,component:AboutComponent},
+  {path:'movies', canActivate:[AuthGuard] ,component:MoviesComponent},
+  {path:'tvshows', canActivate:[AuthGuard] ,component:TvshowsComponent},
+  {path:'details/:id/:mediaType', canActivate:[AuthGuard] ,component:DetailsComponent},
+  {path:'people', canActivate:[AuthGuard] ,component:PeopleComponent},
+  {path:'network', canActivate:[AuthGuard] ,component:NetworkComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'**',component:NotfoundComponent},
+  {path:'**', canActivate:[AuthGuard], component:NotfoundComponent},
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrendingService } from '../trending.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 
@@ -10,7 +11,7 @@ import { TrendingService } from '../trending.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _TrendingService:TrendingService) { }
+  constructor(private _TrendingService:TrendingService, private spinner: NgxSpinnerService) { }
 
   moviesList:any[]=[];
   TvShowsList:any[]=[];
@@ -18,8 +19,15 @@ export class HomeComponent implements OnInit {
 
   getMovies()
   {
+    this.spinner.show();
     this._TrendingService.getTrending('movie').subscribe((response)=>{
       this.moviesList = response.results;
+    },
+    ()=>{
+
+    },
+    ()=>{
+      this.spinner.hide();
     })
   }
   getTvShows()

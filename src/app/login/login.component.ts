@@ -9,21 +9,29 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  isLoading:boolean=false;
+
   loginForm:FormGroup = new FormGroup({
     'email': new FormControl(null,[Validators.required,Validators.email]),
     'password': new FormControl(null,[Validators.required,Validators.pattern(/^[a-zA-Z][0-9]{3}$/)])
   })
   submitForm(){
+    this.isLoading=true;
     if(this.loginForm.invalid){
       return;
     }
-    this._AuthService.signIn(this.loginForm.value).subscribe((data)=>{
-      if(data.message=='success')
+    this._AuthService.signIn(this.loginForm.value).subscribe((response)=>{
+      if(response.message=='success')
       {
+        this.isLoading=false;
+        localStorage.setItem('userToken',response.token);
+        this._AuthService.saveUserData();
         this._Router.navigateByUrl('/home')
       }
       else{
-        alert(data.message)
+        this.isLoading=false;
+        alert(response.message)
       }
     })
   }
