@@ -10,6 +10,7 @@ export class MoviesComponent implements OnInit {
 
   moviesList:any[]=[];
   imgBaseUrl:string = this._TrendingService.imgBaseUrl;
+  term:string=''
 
   getMovies()
   {
@@ -21,6 +22,9 @@ export class MoviesComponent implements OnInit {
   constructor(private _TrendingService:TrendingService) { }
 
   ngOnInit(): void {
+    this._TrendingService.searchFilter.subscribe((value)=>{
+      this.term=value;
+    });
     this.getMovies();
   }
 

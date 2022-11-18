@@ -10,10 +10,14 @@
     <span>Most Watched Movies By Days</span>
     <div class="brdr w-100 mt-4"></div>
   </div>
-  <div class="col-md-2 my-3" *ngFor="let item of moviesList">
-    <div class="item" routerLink="/details/{{item.id}}/movie">
-      <img [src]="imgBaseUrl + item.poster_path" class="img-fluid my-2" >
-      <h2 class="h5">{{item.title}}</h2>
+  <div class="col-md-2 my-3" *ngFor="let item of moviesList|search:term">
+    <div class="item">
+      <img [src]="imgBaseUrl + item.poster_path" class="img-fluid my-2"  routerLink="/details/{{item.id}}/movie">
+      <h2 class="h5"  routerLink="/details/{{item.id}}/movie">{{item.title}}</h2>
+      <p *ngIf="!isSeemore" class="text-muted d-inline">{{item.overview|seemore:10}}</p>
+      <p *ngIf="isSeemore" class="text-muted d-inline">{{item.overview}}</p>
+      <a *ngIf="!isSeemore" (click)="seemore()" class="btn d-inline text-info px-0">...see more</a>
+      <a *ngIf="isSeemore" (click)="seeless()" class="btn d-inline text-info px-0">...see less</a>
     </div>
   </div>
 </div>
@@ -28,7 +32,7 @@
     <span>Most Watched Movies By Days</span>
     <div class="brdr w-100 mt-4"></div>
   </div>
-  <div class="col-md-2 my-3" *ngFor="let item of TvShowsList">
+  <div class="col-md-2 my-3" *ngFor="let item of TvShowsList|searchTv:term">
     <div class="item" routerLink="/details/{{item.id}}/tv">
       <img [src]="imgBaseUrl + item.poster_path" class="img-fluid my-2" >
       <h2 class="h5">{{item.name}}</h2>

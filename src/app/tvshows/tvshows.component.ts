@@ -9,7 +9,8 @@ import { TrendingService } from '../trending.service';
 export class TvshowsComponent implements OnInit {
 
   TvShowsList:any[]=[];
-  imgBaseUrl:string = this._TrendingService.imgBaseUrl
+  imgBaseUrl:string = this._TrendingService.imgBaseUrl;
+  term:string='';
 
   getTvShows()
   {
@@ -22,6 +23,9 @@ export class TvshowsComponent implements OnInit {
   constructor(private _TrendingService:TrendingService) { }
 
   ngOnInit(): void {
+    this._TrendingService.searchFilter.subscribe((value)=>{
+      this.term=value;
+    });
     this.getTvShows();
   }
 

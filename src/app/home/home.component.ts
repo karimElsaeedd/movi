@@ -15,7 +15,10 @@ export class HomeComponent implements OnInit {
 
   moviesList:any[]=[];
   TvShowsList:any[]=[];
-  imgBaseUrl:string = this._TrendingService.imgBaseUrl
+  imgBaseUrl:string = this._TrendingService.imgBaseUrl;
+  isSeemore:boolean=false;
+  term:string=''
+
 
   getMovies()
   {
@@ -36,8 +39,19 @@ export class HomeComponent implements OnInit {
       this.TvShowsList = response.results;
     })
   }
+  seemore()
+  {
+    this.isSeemore=true;
+  }
+  seeless()
+  {
+    this.isSeemore=false;
+  }
 
   ngOnInit(): void {
+    this._TrendingService.searchFilter.subscribe((value)=>{
+    this.term=value;
+  });
     this.getMovies();
     this.getTvShows();
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { TrendingService } from '../trending.service';
+
 
 
 @Component({
@@ -9,9 +11,15 @@ import { AuthService } from '../auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private _AuthService:AuthService) { }
+  constructor(private _AuthService:AuthService,private _TrendingService:TrendingService) { }
 
   isLogin:boolean=false;
+  term:string='';
+
+  sendTerm()
+  {
+    this._TrendingService.emitSearchFilter(this.term);
+  }
 
   logOut()
   {
@@ -19,6 +27,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this._AuthService.userData.subscribe({
       next:()=>{
         if (this._AuthService.userData.getValue() != null) {

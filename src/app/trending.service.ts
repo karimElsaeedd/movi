@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { Observable ,BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -12,7 +12,11 @@ export class TrendingService {
 
   constructor(private _HttpClient:HttpClient) { }
 
-
+  searchFilter = new BehaviorSubject<any>('');
+  emitSearchFilter(value:string)
+  {
+    this.searchFilter.next(value)
+  }
 
   getTrending(mediaType:any):Observable<any>
   {

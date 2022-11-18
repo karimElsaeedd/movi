@@ -14,10 +14,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DetailsComponent } from './details/details.component';
 import { AboutComponent } from './about/about.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxSpinnerModule } from "ngx-spinner";
+import { SeemorePipe } from './seemore.pipe';
+import { SearchPipe } from './search.pipe';
+import { SearchTvPipe } from './search-tv.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
     LoginComponent,
     RegisterComponent,
     DetailsComponent,
-    AboutComponent
+    AboutComponent,
+    SeemorePipe,
+    SearchPipe,
+    SearchTvPipe
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HttpClientModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

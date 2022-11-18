@@ -24,8 +24,6 @@ export class DetailsComponent implements OnInit {
   {
     this._TrendingService.getTrendingDetails(this.mediaType,this.currentId).subscribe((response)=>{
       this.details = response
-      console.log(response);
-
     })
   }
 

@@ -25,6 +25,9 @@
       </ul>
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+          <input [(ngModel)]="term" (keyup)="sendTerm()" *ngIf="isLogin" type="search" class="form-control nav-link" placeholder="search by name...">
+        </li>
         <div class="social-icons d-flex align-items-center">
            <i class="fab fa-facebook"></i>
            <i class="fab fa-spotify"></i>
