@@ -1,3 +1,18 @@
+
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+<div class="d-flex justify-content-center my-5">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li (click)="prev()" class="page-item"><a class="page-link" >Previous</a></li>
+      <li *ngFor="let page of [1,2,3,4,5] " class="page-item">
+        <a (click)="getTvShows(page)" class="page-link">{{page}}</a>
+      </li>
+      <li (click)="next()" class="page-item"><a class="page-link" >Next</a></li>
+    </ul>
+  </nav>
+</div>
+
 <div class="row my-5">
   <div class="col-md-2 my-3" *ngFor="let item of TvShowsList|searchTv:term">
     <div class="item" routerLink="/details/{{item.id}}/tv">

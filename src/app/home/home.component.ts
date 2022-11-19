@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   TvShowsList:any[]=[];
   imgBaseUrl:string = this._TrendingService.imgBaseUrl;
   isSeemore:boolean=false;
-  term:string=''
+  term:string='';
 
 
   getMovies()
@@ -25,13 +25,10 @@ export class HomeComponent implements OnInit {
     this.spinner.show();
     this._TrendingService.getTrending('movie').subscribe((response)=>{
       this.moviesList = response.results;
-    },
-    ()=>{
-
-    },
-    ()=>{
-      this.spinner.hide();
     })
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 500);
   }
   getTvShows()
   {
