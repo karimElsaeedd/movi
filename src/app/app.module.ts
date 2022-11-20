@@ -21,6 +21,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { SeemorePipe } from './seemore.pipe';
 import { SearchPipe } from './search.pipe';
 import { SearchTvPipe } from './search-tv.pipe';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { SearchTvPipe } from './search-tv.pipe';
     HttpClientModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
-    FormsModule
+    FormsModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

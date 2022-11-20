@@ -1,4 +1,16 @@
+
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+<header class="my-5 ">
+  <owl-carousel-o [options]="customOptions">
+
+    <ng-container *ngFor="let movie of moviesList">
+      <ng-template carouselSlide [id]="movie.id">
+        <img [src]="imgBaseUrl + movie.poster_path" class="img-fluid my-2"  routerLink="/details/{{movie.id}}/movie">
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</header>
 
 <div class="row my-5">
   <div class="title col-md-4 mt-4">
