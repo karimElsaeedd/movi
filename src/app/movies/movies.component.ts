@@ -21,10 +21,13 @@ export class MoviesComponent implements OnInit {
     this.pageNum=pageNumber;
     this._TrendingService.getPaginatedMoviesTvshows('movie',pageNumber).subscribe((response)=>{
       this.moviesList = response.results;
-    })
-    setTimeout(() => {
+    },
+    ()=>{
+
+    },
+    ()=>{
       this.spinner.hide();
-    }, 500);
+    })
   }
   next()
   {

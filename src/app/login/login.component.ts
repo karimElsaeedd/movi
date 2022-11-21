@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+// import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -24,12 +26,14 @@ export class LoginComponent implements OnInit {
     this._AuthService.signIn(this.loginForm.value).subscribe((response)=>{
       if(response.message=='success')
       {
+        // this._ToastrService.success('Hello world!', 'login succesfully!');
         this.isLoading=false;
         localStorage.setItem('userToken',response.token);
         this._AuthService.saveUserData();
         this._Router.navigateByUrl('/home')
       }
       else{
+        // this._ToastrService.error(response.message, 'login error!');
         this.isLoading=false;
         alert(response.message)
       }

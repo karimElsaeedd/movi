@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit {
     pullDrag: false,
     dots: false,
     navSpeed: 700,
-    autoplaySpeed: 200,
-    margin: 8,
+    autoplay: true,
+    margin: 15,
     navText: ['', ''],
     responsive: {
       0: {
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
         items: 3
       },
       940: {
-        items: 6
+        items: 4
       }
     },
     nav: true
@@ -52,10 +52,13 @@ export class HomeComponent implements OnInit {
     this.spinner.show();
     this._TrendingService.getTrending('movie').subscribe((response)=>{
       this.moviesList = response.results;
-    })
-    setTimeout(() => {
+    },
+    ()=>{
+
+    },
+    ()=>{
       this.spinner.hide();
-    }, 500);
+    })
   }
   getTvShows()
   {

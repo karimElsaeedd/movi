@@ -19,10 +19,13 @@ export class TvshowsComponent implements OnInit {
     this.spinner.show();
     this._TrendingService.getPaginatedMoviesTvshows('tv',pageNumber).subscribe((response)=>{
       this.TvShowsList = response.results;
-    })
-    setTimeout(() => {
+    },
+    ()=>{
+
+    },
+    ()=>{
       this.spinner.hide();
-    }, 500);
+    })
   }
   next()
   {

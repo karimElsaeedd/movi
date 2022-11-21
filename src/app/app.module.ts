@@ -22,6 +22,9 @@ import { SeemorePipe } from './seemore.pipe';
 import { SearchPipe } from './search.pipe';
 import { SearchTvPipe } from './search-tv.pipe';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { FooterComponent } from './footer/footer.component';
+// import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -40,7 +43,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AboutComponent,
     SeemorePipe,
     SearchPipe,
-    SearchTvPipe
+    SearchTvPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     BrowserAnimationsModule,
     NgxSpinnerModule,
     FormsModule,
-    CarouselModule
+    CarouselModule,
+    // ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
