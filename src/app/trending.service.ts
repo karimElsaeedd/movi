@@ -31,5 +31,9 @@ export class TrendingService {
   {
     return this._HttpClient.get(`http://api.themoviedb.org/3/${mediaType}/${id}?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US`)
   }
+  // getPeople(mediaType:any, id:number):Observable<any>
+  // {
+  //   return this._HttpClient.get(`https://api.themoviedb.org/3/person/{person_id}?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US`)
+  // }
 
 }

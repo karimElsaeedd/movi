@@ -1,1 +1,23 @@
-<p>people works!</p>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#09c" type = "pacman" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+
+<!-- <div class="d-flex justify-content-center my-5">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li (click)="prev()" class="page-item"><a class="page-link" >Previous</a></li>
+      <li *ngFor="let page of [1,2,3,4,5] " class="page-item">
+        <a (click)="getMovies(page)" class="page-link">{{page}}</a>
+      </li>
+      <li (click)="next()" class="page-item"><a class="page-link" >Next</a></li>
+    </ul>
+  </nav>
+</div> -->
+
+<div class="row my-5">
+  <div class="col-md-2 my-3" *ngFor="let item of peopleList">
+    <div class="item">
+      <img [src]="imgBaseUrl + item.profile_path" class="img-fluid my-2">
+      <h2 class="h5">{{item.name}}</h2>
+    </div>
+  </div>
+</div>
