@@ -28,17 +28,17 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._AuthService.userData.subscribe({
-      next:()=>{
-        if (this._AuthService.userData.getValue() != null) {
-          this.isLogin=true;
-        }
-        else
-        {
-          this.isLogin=false;
-        }
-      }
-    })
+    this.isLogin=true;
+    // this._AuthService.userData.subscribe({
+    //   next:()=>{
+    //     if (this._AuthService.userData.getValue() != null) {
+    //     }
+    //     else
+    //     {
+    //       this.isLogin=false;
+    //     }
+    //   }
+    // })
   }
 
 }

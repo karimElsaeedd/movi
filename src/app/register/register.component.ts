@@ -23,21 +23,21 @@ export class RegisterComponent implements OnInit {
     'password': new FormControl(null,[Validators.required,Validators.pattern(/^[a-zA-Z][0-9]{3}$/)])
   })
   submitForm(){
-    this.isLoading=true;
+    // this.isLoading=true;
     if(this.registerForm.invalid){
       return;
     }
-    this._AuthService.signUp(this.registerForm.value).subscribe((data)=>{
-      if(data.message=='success')
-      {
-        this._Router.navigateByUrl('/login')
-        this.isLoading=false;
-      }
-      else{
-        alert(data.message)
-        this.isLoading=false;
-      }
-    })
+    // this._AuthService.signUp(this.registerForm.value).subscribe((data)=>{
+    //   if(data.message=='success')
+    //   {
+    //     this._Router.navigateByUrl('/login')
+    //     this.isLoading=false;
+    //   }
+    //   else{
+    //     alert(data.message)
+    //     this.isLoading=false;
+    //   }
+    // })
   }
 
 
