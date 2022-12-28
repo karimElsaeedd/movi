@@ -25,11 +25,11 @@ export class TrendingService {
 
   getTrending(mediaType:any):Observable<any>
   {
-    return this._HttpClient.get(`http://api.themoviedb.org/3/trending/${mediaType}/day?api_key=c636ed7787cc302d96bf88ccf334e0d8`)
+    return this._HttpClient.get(`https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=c636ed7787cc302d96bf88ccf334e0d8`)
   }
   getTrendingDetails(mediaType:any, id:number):Observable<any>
   {
-    return this._HttpClient.get(`http://api.themoviedb.org/3/${mediaType}/${id}?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US`)
+    return this._HttpClient.get(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=c636ed7787cc302d96bf88ccf334e0d8&language=en-US`)
   }
   // getPeople(mediaType:any, id:number):Observable<any>
   // {
