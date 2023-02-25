@@ -18,15 +18,14 @@ export class PeopleComponent implements OnInit {
   getPeople()
   {
     this.spinner.show();
-    this._TrendingService.getTrending('person').subscribe((response)=>{
-      this.peopleList = response.results;
-    },
-    ()=>{
-
-    },
-    ()=>{
-      this.spinner.hide();
-    })
+    this._TrendingService.getTrending('person').subscribe(
+      {
+        next:(response) =>
+        {this.peopleList = response.results;}
+        ,
+        complete:() =>
+        {this.spinner.hide();}
+      })
   }
 
   ngOnInit(): void {

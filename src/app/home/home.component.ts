@@ -43,42 +43,54 @@ export class HomeComponent implements OnInit {
   moviesList:any[]=[];
   TvShowsList:any[]=[];
   imgBaseUrl:string = this._TrendingService.imgBaseUrl;
-  isSeemore:boolean=false;
   term:string='';
 
 
   getMovies()
   {
     this.spinner.show();
-    this._TrendingService.getTrending('movie').subscribe((response)=>{
-      this.moviesList = response.results;
-    },
-    ()=>{
-
-    },
-    ()=>{
-      this.spinner.hide();
-    })
+    this._TrendingService.getTrending('movie').subscribe(
+      {
+        next: (response) =>
+        {this.moviesList = response.results
+          .map((item: any)=>({
+            ...item,
+            isExpanded: false,
+          }))
+          ;}
+        ,
+        complete: () =>
+        {this.spinner.hide();}
+      })
   }
   getTvShows()
   {
-    this._TrendingService.getTrending('tv').subscribe((response)=>{
-      this.TvShowsList = response.results;
-    })
+    this._TrendingService.getTrending('tv').subscribe(
+      {
+        next: (response) =>
+        {this.TvShowsList = response.results
+          .map((item: any)=>({
+            ...item,
+            isExpanded: false,
+          }))
+          ;}
+      })
   }
-  seemore()
+  seemore(movie:any)
   {
-    this.isSeemore=true;
+    movie.isExpanded=true;
   }
-  seeless()
+  seeless(movie:any)
   {
-    this.isSeemore=false;
+    movie.isExpanded=false;
   }
 
   ngOnInit(): void {
-    this._TrendingService.searchFilter.subscribe((value)=>{
-    this.term=value;
-  });
+    this._TrendingService.searchFilter.subscribe(
+      {
+        next: (value)=>
+        {this.term=value;}
+      });
     this.getMovies();
     this.getTvShows();
   }

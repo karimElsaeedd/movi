@@ -17,15 +17,14 @@ export class TvshowsComponent implements OnInit {
   getTvShows(pageNumber:number)
   {
     this.spinner.show();
-    this._TrendingService.getPaginatedMoviesTvshows('tv',pageNumber).subscribe((response)=>{
-      this.TvShowsList = response.results;
-    },
-    ()=>{
-
-    },
-    ()=>{
-      this.spinner.hide();
-    })
+    this._TrendingService.getPaginatedMoviesTvshows('tv',pageNumber).subscribe(
+      {
+        next:(response) =>
+        {this.TvShowsList = response.results;}
+        ,
+        complete:() =>
+        {this.spinner.hide();}
+      })
   }
   next()
   {
@@ -58,9 +57,11 @@ export class TvshowsComponent implements OnInit {
   constructor(private _TrendingService:TrendingService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this._TrendingService.searchFilter.subscribe((value)=>{
-      this.term=value;
-    });
+    this._TrendingService.searchFilter.subscribe(
+      {
+        next:(value) =>
+        {this.term=value;}
+      });
     this.getTvShows(this.pageNum);
   }
 

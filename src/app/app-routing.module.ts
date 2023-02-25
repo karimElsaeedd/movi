@@ -6,7 +6,6 @@ import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MoviesComponent } from './movies/movies.component';
-import { NetworkComponent } from './network/network.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { PeopleComponent } from './people/people.component';
 import { RegisterComponent } from './register/register.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
   {path:'tvshows', canActivate:[AuthGuard] ,component:TvshowsComponent},
   {path:'details/:id/:mediaType', canActivate:[AuthGuard] ,component:DetailsComponent},
   {path:'people', canActivate:[AuthGuard] ,component:PeopleComponent},
-  {path:'network', canActivate:[AuthGuard] ,component:NetworkComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'**', canActivate:[AuthGuard], component:NotfoundComponent},

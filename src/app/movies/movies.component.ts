@@ -19,15 +19,14 @@ export class MoviesComponent implements OnInit {
   {
     this.spinner.show();
     this.pageNum=pageNumber;
-    this._TrendingService.getPaginatedMoviesTvshows('movie',pageNumber).subscribe((response)=>{
-      this.moviesList = response.results;
-    },
-    ()=>{
-
-    },
-    ()=>{
-      this.spinner.hide();
-    })
+    this._TrendingService.getPaginatedMoviesTvshows('movie',pageNumber).subscribe(
+      {
+        next:(response)=>
+        {this.moviesList = response.results;}
+        ,
+        complete:() =>
+        {this.spinner.hide();}
+      })
   }
   next()
   {
@@ -59,9 +58,11 @@ export class MoviesComponent implements OnInit {
   constructor(private _TrendingService:TrendingService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this._TrendingService.searchFilter.subscribe((value)=>{
-      this.term=value;
-    });
+    this._TrendingService.searchFilter.subscribe(
+      {
+        next:(value) =>
+        {this.term=value;}
+      });
     this.getMovies(this.pageNum);
   }
 

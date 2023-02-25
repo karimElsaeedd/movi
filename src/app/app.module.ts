@@ -8,7 +8,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MoviesComponent } from './movies/movies.component';
 import { TvshowsComponent } from './tvshows/tvshows.component';
 import { PeopleComponent } from './people/people.component';
-import { NetworkComponent } from './network/network.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -35,7 +34,6 @@ import { FooterComponent } from './footer/footer.component';
     MoviesComponent,
     TvshowsComponent,
     PeopleComponent,
-    NetworkComponent,
     NotfoundComponent,
     LoginComponent,
     RegisterComponent,
